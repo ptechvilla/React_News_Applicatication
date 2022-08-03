@@ -3,13 +3,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import React from 'react'
 import './App.css';
+import React from 'react';
+// import { NavLink } from 'react-router-dom'
 
-const container = {
-  display: "inline",
-  width: "100px"
-}
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+// import Bussiness from './component/Bussiness'
+
+// const container = {
+//   display: "inline",
+//   width: "100px"
+// }
 
 function App() {
   const [news, setNews] = useState([]);
@@ -17,7 +23,7 @@ function App() {
   useEffect(() => {
 
     const fetchnews = () => {
-      axios.get("https://newsapi.org/v2/top-headlines?country=in&apiKey=9f15837d0bf94e028496e6c920ecbe82").then((res) => {
+      axios.get("https://newsapi.org/v2/top-headlines?country=in&apiKey=30a733ed44764056a29aa1eeed027d69").then((res) => {
         //  console.log(res.data.articles);
         setNews(res.data.articles);
       })
@@ -27,9 +33,10 @@ function App() {
 
   return (
     <>
+
       <div className='container'>
-        <div className='row mt-5' style={{border:"red"}}>
-          <h1 style={{textAlign:'center',color:"red"}}>Top Headlines</h1>
+        <div className='row mt-5' style={{ border: "red" }}>
+          <h1 style={{ textAlign: 'center', color: "red" }}>Top Headlines</h1>
           {
             news.map((value) => {
               return (
